@@ -5,10 +5,10 @@
         <div class="confidence__wrapper">
             <div class="confidence__info">
                 <h5 class="confidence__subtitle">Дизайн-проект от студии LA Design не только совершенен по дизайну, но и реализуем</h5>
-                <div class="confidence__elem" v-for="item in items" :key="item.id">
-                    <p>{{ item.title }}</p>
-                    <img src="@/assets/icon_arrow.png" alt="arrow">
-                </div>
+                <confidence-item
+                v-for="item in items" :key="item.id"
+                :item="item">
+                </confidence-item>
             </div>
             <div class="confidence__img">
                 <img src="@/assets/confidence.png" alt="img">
@@ -18,8 +18,12 @@
 </template>
 
 <script>
+    import ConfidenceItem from "@/components/ConfidenceItem/ConfidenceItem";
     export default {
         name: "ConfidenceApp.vue",
+        components: {
+            ConfidenceItem
+        },
         data () {
             return {
                 items: [

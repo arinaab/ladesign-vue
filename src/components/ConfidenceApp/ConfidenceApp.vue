@@ -1,6 +1,6 @@
 <template>
     <div class="confidence">
-        <h4 class="confidence__title">Наша команда дает уверенность</h4>
+        <subtitle-app>Наша команда дает уверенность</subtitle-app>
         <!-- eslint-disable -->
         <div class="confidence__wrapper">
             <div class="confidence__info">
@@ -19,10 +19,11 @@
 
 <script>
     import ConfidenceItem from "@/components/ConfidenceItem/ConfidenceItem";
+    import SubtitleApp from "@/components/UI/subtitle/SubtitleApp";
     export default {
         name: "ConfidenceApp.vue",
         components: {
-            ConfidenceItem
+            ConfidenceItem, SubtitleApp
         },
         data () {
             return {

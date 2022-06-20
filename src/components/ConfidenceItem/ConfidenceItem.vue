@@ -4,7 +4,7 @@
         <img v-if="!itemIsOpen" src="@/assets/icon_arrow.png" alt="arrow">
         <img v-else src="@/assets/icon_arrow-2.png" alt="arrow">
         <transition name="fade">
-            <p class="confidence__text" v-if="itemIsOpen">Дизайнеры и архитекторы студии не работают по шаблону, учитывают все пожелания и не копируют работы из чужих портфолио</p>
+            <p class="confidence__text" v-if="itemIsOpen">{{ item.description }}</p>
         </transition>
     </div>
 </template>

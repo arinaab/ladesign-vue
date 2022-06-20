@@ -11,6 +11,10 @@
         <div v-if="moreItems" class="portfolio__items">
             <img v-for="item in itemsImg" :key="item.id" :src="item.src" :alt="item.alt">
         </div>
+        <div class="portfolio__link">
+            <a href="#">Оставить заявку на проект</a>
+            <img src="@/assets/arrowportfolio.svg" alt="arrow">
+        </div>
     </div>
 </template>
 

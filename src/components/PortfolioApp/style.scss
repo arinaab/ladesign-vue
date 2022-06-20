@@ -85,4 +85,30 @@
       }
     }
   }
+  &__link {
+    margin-top: 130px;
+    border-bottom: 1px solid #D5D5D5;
+    position: relative;
+    a {
+      font-weight: 300;
+      font-size: 40px;
+      text-align: center;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #777777;
+      text-decoration: none;
+      &:hover {
+        color: #393246;
+      }
+    }
+    &:hover {
+      border-bottom: 1px solid #393246;
+    }
+    img {
+      display: block;
+      position: absolute;
+      top: 10px;
+      right: -23px;
+    }
+  }
 }

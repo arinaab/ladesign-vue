@@ -17,6 +17,14 @@
         components: {
             PromoApp, ConfidenceApp, PortfolioApp
         }
+        // methods: {
+        //     onScroll () {
+        //         console.log(document.documentElement.scrollTop)
+        //     }
+        // },
+        // mounted () {
+        //     window.addEventListener('scroll', this.onScroll);
+        // }
     }
 </script>
 

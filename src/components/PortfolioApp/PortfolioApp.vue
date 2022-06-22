@@ -5,7 +5,7 @@
             <portfolio-item v-for="item in navItems" :key="item.id" :item="item"></portfolio-item>
         </div>
         <div class="portfolio__items">
-            <img v-for="item in itemsImg" :key="item.id" :src="item.src" :alt="item.alt">
+            <img v-for="item in itemsImg" :key="item.id" :src="item.src" :alt="item.alt" @mouseover="onHover">
         </div>
         <button-app v-if="!moreItems" @click="showMoreItems">Показать еще работы</button-app>
         <div v-if="moreItems" class="portfolio__items">
@@ -31,7 +31,7 @@
             itemsImg () {
                 const arr = []
                 for (let i = 0; i < 10; i++) {
-                    arr.push({id: i + 1, src: `${i + 1}.png`, alt: `${i + 1}`})
+                    arr.push({id: i + 1, src: `${i + 1}.png`, alt: `${i + 1}`, descr: this.description[i]})
                 }
                 return arr
             }
@@ -44,12 +44,20 @@
                     { id: 3, title: 'дома', amount: 12},
                     { id: 4, title: 'коммерческие помещения', amount: 2}
                 ],
-                moreItems: false
+                description: [
+                    'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки',
+                    'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки'
+                ],
+                moreItems: false,
+                isHover: false
             }
         },
         methods: {
             showMoreItems () {
                 this.moreItems = true
+            },
+            onHover () {
+                this.isHover = !this.isHover
             }
         }
     }

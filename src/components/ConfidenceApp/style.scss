@@ -42,6 +42,9 @@
     }
     &:last-child {
       border-bottom: 1px solid #c8c3c3;
+      p {
+        width: 88%;
+      }
     }
     &:hover {
       color: #393246;

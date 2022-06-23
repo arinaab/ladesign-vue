@@ -1,12 +1,18 @@
 <template>
-    <button class="btn">
+    <button class="btn" :class="color">
         <slot></slot>
     </button>
 </template>
 
 <script>
     export default {
-        name: "ButtonApp.vue"
+        name: "ButtonApp.vue",
+        props: {
+            color: {
+                type: String,
+                default: 'standart'
+            }
+        }
     }
 </script>
 

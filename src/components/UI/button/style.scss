@@ -5,11 +5,22 @@
   text-align: center;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  cursor: pointer;
+}
+.standart {
   color: #393246;
   background-color: #fff;
-  cursor: pointer;
   &:hover {
     background: #393246;
     color: #FFFFFF;
+  }
+}
+.dark {
+  width: 228px;
+  background: #393246;
+  color: #FFFFFF;
+  &:hover {
+    color: #393246;
+    background-color: #fff;
   }
 }

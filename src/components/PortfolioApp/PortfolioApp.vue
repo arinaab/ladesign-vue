@@ -7,14 +7,20 @@
         <div class="portfolio__items">
             <portfolio-img v-for="item in itemsImg" :key="item.id" :img="item"></portfolio-img>
         </div>
-        <button-app v-if="!moreItems" @click="showMoreItems">Показать еще работы</button-app>
+        <button-app color="standart" v-if="!moreItems" @click="showMoreItems">Показать еще работы</button-app>
         <div v-if="moreItems" class="portfolio__items">
             <portfolio-img v-for="item in itemsImg" :key="item.id" :img="item"></portfolio-img>
         </div>
         <div class="portfolio__link">
-            <a href="#">Оставить заявку на проект</a>
+            <p @click="showModal">Оставить заявку на проект</p>
             <img src="@/assets/arrowportfolio.svg" alt="arrow">
         </div>
+        <modal-app v-if="showModalForm" :text-message="modalMessage" need-inputs @changeModal="closeModal">
+            <div class="portfolio__modal">
+                <button-app color="dark">Отправить</button-app>
+                <p>Нажимая на кнопку, я даю согласие на обработку персональных данных</p>
+            </div>
+        </modal-app>
     </div>
 </template>
 
@@ -23,10 +29,11 @@
     import PortfolioItem from "@/components/PortfolioItem/PortfolioItem";
     import ButtonApp from "@/components/UI/button/ButtonApp";
     import PortfolioImg from "@/components/PortfolioImg/PortfolioImg";
+    import ModalApp from "@/components/UI/modal/ModalApp";
     export default {
         name: "PortfolioApp.vue",
         components: {
-            SubtitleApp, PortfolioItem, ButtonApp, PortfolioImg
+            SubtitleApp, PortfolioItem, ButtonApp, PortfolioImg, ModalApp
         },
         computed: {
             itemsImg () {
@@ -53,12 +60,20 @@
                     'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки',
                     'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки'
                 ],
-                moreItems: false
+                moreItems: false,
+                showModalForm: false,
+                modalMessage: 'оставьте свои контакты. мы свяжемся с вами и обсудим ваш проект'
             }
         },
         methods: {
             showMoreItems () {
                 this.moreItems = true
+            },
+            showModal () {
+                this.showModalForm = true
+            },
+            closeModal () {
+                this.showModalForm = false
             }
         }
     }

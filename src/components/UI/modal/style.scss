@@ -1,0 +1,45 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+  &__item {
+    width: 800px;
+    height: 360px;
+    background-color: #fff;
+    padding: 50px;
+  }
+  &__title {
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #777777;
+    max-width: 660px;
+  }
+  &__inputs {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+}
+#name, #tel {
+  display: block;
+  padding: 10px 0 10px 5px;
+  width: 335px;
+  border: none;
+  border-bottom: 1px solid #c8c3c3;
+  &::placeholder {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    color: #ADADAD;
+  }
+}

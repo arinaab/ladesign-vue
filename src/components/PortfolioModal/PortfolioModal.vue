@@ -1,5 +1,5 @@
 <template>
-    <modal-app :text-message="modalMessage">
+    <modal-app :text-message="modalMessage" @click="$emit('changeModal')">
         <div class="modal__inputs">
             <input id="name" type="text" placeholder="Ваше имя">
             <input id="tel" type="number" placeholder="Ваш телефон">

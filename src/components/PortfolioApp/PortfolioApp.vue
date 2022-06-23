@@ -15,7 +15,7 @@
             <p @click="showModal">Оставить заявку на проект</p>
             <img src="@/assets/arrowportfolio.svg" alt="arrow">
         </div>
-        <portfolio-modal></portfolio-modal>
+        <portfolio-modal v-if="showModalForm" @changeModal="closeModal"></portfolio-modal>
     </div>
 </template>
 
@@ -24,7 +24,6 @@
     import PortfolioItem from "@/components/PortfolioItem/PortfolioItem";
     import ButtonApp from "@/components/UI/button/ButtonApp";
     import PortfolioImg from "@/components/PortfolioImg/PortfolioImg";
-    // import ModalApp from "@/components/UI/modal/ModalApp";
     import PortfolioModal from "@/components/PortfolioModal/PortfolioModal";
     export default {
         name: "PortfolioApp.vue",

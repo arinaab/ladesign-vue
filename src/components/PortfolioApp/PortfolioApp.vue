@@ -15,12 +15,7 @@
             <p @click="showModal">Оставить заявку на проект</p>
             <img src="@/assets/arrowportfolio.svg" alt="arrow">
         </div>
-        <modal-app v-if="showModalForm" :text-message="modalMessage" need-inputs @changeModal="closeModal">
-            <div class="portfolio__modal">
-                <button-app color="dark">Отправить</button-app>
-                <p>Нажимая на кнопку, я даю согласие на обработку персональных данных</p>
-            </div>
-        </modal-app>
+        <portfolio-modal></portfolio-modal>
     </div>
 </template>
 
@@ -29,11 +24,12 @@
     import PortfolioItem from "@/components/PortfolioItem/PortfolioItem";
     import ButtonApp from "@/components/UI/button/ButtonApp";
     import PortfolioImg from "@/components/PortfolioImg/PortfolioImg";
-    import ModalApp from "@/components/UI/modal/ModalApp";
+    // import ModalApp from "@/components/UI/modal/ModalApp";
+    import PortfolioModal from "@/components/PortfolioModal/PortfolioModal";
     export default {
         name: "PortfolioApp.vue",
         components: {
-            SubtitleApp, PortfolioItem, ButtonApp, PortfolioImg, ModalApp
+            SubtitleApp, PortfolioItem, ButtonApp, PortfolioImg, PortfolioModal
         },
         computed: {
             itemsImg () {

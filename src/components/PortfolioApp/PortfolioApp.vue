@@ -5,11 +5,11 @@
             <portfolio-item v-for="item in navItems" :key="item.id" :item="item"></portfolio-item>
         </div>
         <div class="portfolio__items">
-            <img v-for="item in itemsImg" :key="item.id" :src="item.src" :alt="item.alt" @mouseover="onHover">
+            <portfolio-img v-for="item in itemsImg" :key="item.id" :img="item"></portfolio-img>
         </div>
         <button-app v-if="!moreItems" @click="showMoreItems">Показать еще работы</button-app>
         <div v-if="moreItems" class="portfolio__items">
-            <img v-for="item in itemsImg" :key="item.id" :src="item.src" :alt="item.alt">
+            <portfolio-img v-for="item in itemsImg" :key="item.id" :img="item"></portfolio-img>
         </div>
         <div class="portfolio__link">
             <a href="#">Оставить заявку на проект</a>
@@ -22,16 +22,21 @@
     import SubtitleApp from "@/components/UI/subtitle/SubtitleApp";
     import PortfolioItem from "@/components/PortfolioItem/PortfolioItem";
     import ButtonApp from "@/components/UI/button/ButtonApp";
+    import PortfolioImg from "@/components/PortfolioImg/PortfolioImg";
     export default {
         name: "PortfolioApp.vue",
         components: {
-            SubtitleApp, PortfolioItem, ButtonApp
+            SubtitleApp, PortfolioItem, ButtonApp, PortfolioImg
         },
         computed: {
             itemsImg () {
                 const arr = []
                 for (let i = 0; i < 10; i++) {
-                    arr.push({id: i + 1, src: `${i + 1}.png`, alt: `${i + 1}`, descr: this.description[i]})
+                    arr.push({
+                        id: i + 1, src: `${i + 1}.png`,
+                        alt: `${i + 1}`,
+                        descr: this.description[i],
+                        text: 'Unique collection'})
                 }
                 return arr
             }
@@ -48,16 +53,12 @@
                     'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки',
                     'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки'
                 ],
-                moreItems: false,
-                isHover: false
+                moreItems: false
             }
         },
         methods: {
             showMoreItems () {
                 this.moreItems = true
-            },
-            onHover () {
-                this.isHover = !this.isHover
             }
         }
     }

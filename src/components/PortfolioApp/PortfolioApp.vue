@@ -15,7 +15,9 @@
             <p @click="showModal">Оставить заявку на проект</p>
             <img src="@/assets/arrowportfolio.svg" alt="arrow">
         </div>
-        <portfolio-modal v-if="showModalForm" @changeModal="closeModal"></portfolio-modal>
+        <portfolio-modal v-if="showModalForm" @changeModal="closeModal"
+        @showThanksModal="showThanksModal"></portfolio-modal>
+        <thanks-modal v-if="showThanks" @changeModal="closeModal"></thanks-modal>
     </div>
 </template>
 
@@ -25,10 +27,11 @@
     import ButtonApp from "@/components/UI/button/ButtonApp";
     import PortfolioImg from "@/components/PortfolioImg/PortfolioImg";
     import PortfolioModal from "@/components/PortfolioModal/PortfolioModal";
+    import ThanksModal from "@/components/ThanksModal/ThanksModal";
     export default {
         name: "PortfolioApp.vue",
         components: {
-            SubtitleApp, PortfolioItem, ButtonApp, PortfolioImg, PortfolioModal
+            SubtitleApp, PortfolioItem, ButtonApp, PortfolioImg, PortfolioModal, ThanksModal
         },
         computed: {
             itemsImg () {
@@ -57,7 +60,7 @@
                 ],
                 moreItems: false,
                 showModalForm: false,
-                modalMessage: 'оставьте свои контакты. мы свяжемся с вами и обсудим ваш проект'
+                showThanks: false
             }
         },
         methods: {
@@ -69,6 +72,12 @@
             },
             closeModal () {
                 this.showModalForm = false
+                this.showThanks = false
+            },
+            showThanksModal () {
+                this.showModalForm = false
+                this.showThanks = true
+                setTimeout(() => this.showThanks = false, 3000)
             }
         }
     }

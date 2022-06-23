@@ -9,6 +9,20 @@
   justify-content: center;
   align-items: center;
   padding-top: 100px;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 390px;
+    margin: 0 auto;
+  }
+  &__success {
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
   &__item {
     width: 800px;
     height: 360px;
@@ -23,6 +37,32 @@
     text-transform: uppercase;
     color: #777777;
     max-width: 660px;
+    &_center {
+      text-align: center;
+    }
+  }
+  &__text {
+    margin-top: 20px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 16px;
+    color: #777777;
+    text-align: center;
+  }
+  &__links {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #878787;
+    }
   }
   &__inputs {
     margin-top: 40px;

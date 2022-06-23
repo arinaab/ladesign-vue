@@ -2,7 +2,6 @@
     <div class="modal" @click="$emit('changeModal')">
         <div class="modal__item" @click.stop="">
             <app-close @click="$emit('changeModal')"></app-close>
-            <p class="modal__title">{{ textMessage }}</p>
             <slot></slot>
         </div>
     </div>
@@ -14,11 +13,6 @@
         name: "ModalApp",
         components: {
           AppClose
-        },
-        props: {
-            textMessage: {
-                type: String
-            }
         }
     }
 </script>

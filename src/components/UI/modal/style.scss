@@ -8,12 +8,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 70px;
+  padding-top: 100px;
   &__item {
     width: 800px;
     height: 360px;
     background-color: #fff;
     padding: 50px;
+    position: relative;
   }
   &__title {
     font-weight: 300;

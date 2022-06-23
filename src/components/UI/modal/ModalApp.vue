@@ -1,7 +1,7 @@
 <template>
     <div class="modal" @click="$emit('changeModal')">
         <div class="modal__item" @click.stop="">
-<!--            <slot></slot>-->
+            <app-close @click="$emit('changeModal')"></app-close>
             <p class="modal__title">{{ textMessage }}</p>
             <div v-if="needInputs" class="modal__inputs">
                 <input id="name" type="text" placeholder="Ваше имя">
@@ -13,8 +13,12 @@
 </template>
 
 <script>
+    import AppClose from "@/components/UI/close/AppClose";
     export default {
         name: "ModalApp",
+        components: {
+          AppClose
+        },
         props: {
             textMessage: {
                 type: String

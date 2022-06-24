@@ -1,6 +1,7 @@
 const state = {
     MODALFORM: false,
-    MODALTHANKS: false
+    MODALTHANKS: false,
+    OVERLAY: false
 }
 
 const getters = {
@@ -9,6 +10,9 @@ const getters = {
     },
     GET_MODALTHANKS_STATE (state) {
         return state.MODALTHANKS
+    },
+    GET_OVERLAY_STATE (state) {
+        return state.OVERLAY
     }
 }
 
@@ -18,6 +22,9 @@ const mutations = {
     },
     SET_MODALTHANKS_STATE (state, val) {
         state.MODALTHANKS = val
+    },
+    SET_OVERLAY_STATE (state) {
+        return state.OVERLAY = !state.OVERLAY
     }
 }
 

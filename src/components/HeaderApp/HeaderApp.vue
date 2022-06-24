@@ -1,7 +1,7 @@
 <template>
     <nav class="header" :class="{ 'light': changeColors }">
         <div class="header__items">
-            <img v-if="!changeColors" class="header__logo" src="@/assets/logo.svg" alt="logo">
+            <img v-if="!changeColors || GET_OVERLAY_STATE" class="header__logo" src="@/assets/logo.svg" alt="logo">
             <img v-else class="header__logo" src="@/assets/logodark.svg" alt="logo">
             <div class="header__links">
                 <a class="header__item" :class="{ 'dark': changeColors }" href="#">Портфолио</a>
@@ -9,27 +9,48 @@
                 <a class="header__item" :class="{ 'dark': changeColors }" href="#">Контакты</a>
             </div>
             <div class="header__info">
-                <img v-if="!changeColors" class="header__phone" src="@/assets/icon_phon.svg" alt="phone">
+                <img v-if="!changeColors || GET_OVERLAY_STATE" class="header__phone" src="@/assets/icon_phon.svg" alt="phone">
                 <img v-else class="header__phone" src="@/assets/phonedark.svg" alt="phone">
-                <a class="header__item" :class="{ 'dark': changeColors }" href="tel:+79184123443">+7 918 412 34 43</a>
+                <a class="header__item" :class="{ 'dark': changeColors && !GET_OVERLAY_STATE }" href="tel:+79184123443">+7 918 412 34 43</a>
+            </div>
+        </div>
+        <burger-app :is-dark="isDark && !GET_OVERLAY_STATE" @click="changeOverlay"></burger-app>
+        <div v-if="GET_OVERLAY_STATE" class="overlay">
+            <div class="overlay__links">
+                <a class="overlay__item" href="#">Портфолио</a>
+                <a class="overlay__item" href="#">Услуги и цены</a>
+                <a class="overlay__item" href="#">Контакты</a>
             </div>
         </div>
     </nav>
 </template>
 
 <script>
+    import BurgerApp from "@/components/UI/burger/BurgerApp";
+    import { mapGetters, mapMutations } from 'vuex'
     export default {
         name: "HeaderApp.vue",
+        components: {
+            BurgerApp
+        },
         data () {
             return {
                 scrollTop: '',
-                changeColors: false
+                changeColors: false,
+                isDark: false
             }
         },
+        computed: {
+          ...mapGetters('MainModule', ['GET_OVERLAY_STATE'])
+        },
         methods: {
+            ...mapMutations('MainModule', ['SET_OVERLAY_STATE']),
             onScroll () {
                 this.scrollTop = document.documentElement.scrollTop
-                this.scrollTop >= 800 ? this.changeColors = true : this.changeColors = false
+                this.scrollTop >= 800 ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
+            },
+            changeOverlay () {
+                this.SET_OVERLAY_STATE()
             }
         },
         mounted () {

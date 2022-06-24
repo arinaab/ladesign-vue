@@ -21,7 +21,7 @@
             PromoApp, ConfidenceApp, PortfolioApp, FooterApp
         },
         computed: {
-            ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE'])
+            ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE', 'GET_OVERLAY_STATE'])
         },
         methods: {
           checkVal (val) {
@@ -33,6 +33,9 @@
                 this.checkVal(val)
             },
             GET_MODALTHANKS_STATE(val) {
+                this.checkVal(val)
+            },
+            GET_OVERLAY_STATE(val) {
                 this.checkVal(val)
             }
         }

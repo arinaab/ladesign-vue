@@ -3,7 +3,7 @@
         <p class="modal__title">{{ modalMessage }}</p>
         <div class="modal__inputs">
             <input-app id="name" placeholder="Ваше имя" type="text" v-model="name" ></input-app>
-            <input-app id="tel" placeholder="Ваш телефон" type="number" v-model="tel"></input-app>
+            <input-app id="tel" placeholder="Ваш телефон" type="text" v-model="tel"></input-app>
         </div>
         <div class="modal__portfolio">
             <button-app color="dark" @click="sendData">Отправить</button-app>
@@ -16,6 +16,7 @@
     import ModalApp from "@/components/UI/modal/ModalApp";
     import ButtonApp from "@/components/UI/button/ButtonApp";
     import InputApp from "@/components/UI/input/InputApp";
+    import Inputmask from "inputmask";
     export default {
         name: "PortfolioModal",
         components: {
@@ -36,6 +37,11 @@
                     this.$emit('showThanksModal')
                 }
             }
+        },
+        mounted () {
+            const input = document.querySelector('#tel')
+            const im = new Inputmask('9-999-999-99-99')
+            im.mask(input)
         }
     }
 </script>

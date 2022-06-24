@@ -78,7 +78,7 @@
             showThanksModal () {
                 this.SET_MODALFORM_STATE(false)
                 this.SET_MODALTHANKS_STATE(true)
-                setTimeout(() => this.SET_MODALTHANKS_STATE(false), 3000)
+                // setTimeout(() => this.SET_MODALTHANKS_STATE(false), 3000)
             }
         }
     }

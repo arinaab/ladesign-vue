@@ -1,6 +1,6 @@
 <template>
     <div class="modal" @click="$emit('changeModal')">
-        <div class="modal__item" :style="style" @click.stop="">
+        <div class="modal__item" @click.stop="" :class="{ 'thanks': isThanks }">
             <app-close @click="$emit('changeModal')"></app-close>
             <slot></slot>
         </div>
@@ -15,8 +15,8 @@
           AppClose
         },
         props: {
-            style: {
-                type: Object
+            isThanks: {
+                type: Boolean
             }
         }
     }

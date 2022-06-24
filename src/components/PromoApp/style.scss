@@ -29,7 +29,14 @@
 
 }
 @media (max-width: 767px) {
-
+  .promo {
+    &__title {
+      font-size: 110px;
+    }
+    &__subtitle {
+      width: 530px;
+    }
+  }
 }
 @media (max-width: 575px) {
 

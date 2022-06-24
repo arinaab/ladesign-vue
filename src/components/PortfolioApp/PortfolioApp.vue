@@ -15,9 +15,9 @@
             <p @click="showModal">Оставить заявку на проект</p>
             <img src="@/assets/arrowportfolio.svg" alt="arrow">
         </div>
-        <portfolio-modal v-if="showModalForm" @changeModal="closeModal"
+        <portfolio-modal v-if="GET_MODALFORM_STATE" @changeModal="closeModal"
         @showThanksModal="showThanksModal"></portfolio-modal>
-        <thanks-modal v-if="showThanks" @changeModal="closeModal"></thanks-modal>
+        <thanks-modal v-if="GET_MODALTHANKS_STATE" @changeModal="closeModal"></thanks-modal>
     </div>
 </template>
 
@@ -28,12 +28,14 @@
     import PortfolioImg from "@/components/PortfolioImg/PortfolioImg";
     import PortfolioModal from "@/components/PortfolioModal/PortfolioModal";
     import ThanksModal from "@/components/ThanksModal/ThanksModal";
+    import { mapGetters, mapMutations } from 'vuex'
     export default {
         name: "PortfolioApp.vue",
         components: {
             SubtitleApp, PortfolioItem, ButtonApp, PortfolioImg, PortfolioModal, ThanksModal
         },
         computed: {
+            ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE']),
             itemsImg () {
                 const arr = []
                 for (let i = 0; i < 10; i++) {
@@ -58,26 +60,25 @@
                     'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки',
                     'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки'
                 ],
-                moreItems: false,
-                showModalForm: false,
-                showThanks: false
+                moreItems: false
             }
         },
         methods: {
+            ...mapMutations('MainModule', ['SET_MODALFORM_STATE', 'SET_MODALTHANKS_STATE']),
             showMoreItems () {
                 this.moreItems = true
             },
             showModal () {
-                this.showModalForm = true
+                this.SET_MODALFORM_STATE(true)
             },
             closeModal () {
-                this.showModalForm = false
-                this.showThanks = false
+                this.SET_MODALFORM_STATE(false)
+                this.SET_MODALTHANKS_STATE(false)
             },
             showThanksModal () {
-                this.showModalForm = false
-                this.showThanks = true
-                setTimeout(() => this.showThanks = false, 3000)
+                this.SET_MODALFORM_STATE(false)
+                this.SET_MODALTHANKS_STATE(true)
+                setTimeout(() => this.SET_MODALTHANKS_STATE(false), 3000)
             }
         }
     }

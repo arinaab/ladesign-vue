@@ -23,9 +23,17 @@
         computed: {
             ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE'])
         },
+        methods: {
+          checkVal (val) {
+              val ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
+          }
+        },
         watch: {
             GET_MODALFORM_STATE(val) {
-                val ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
+                this.checkVal(val)
+            },
+            GET_MODALTHANKS_STATE(val) {
+                this.checkVal(val)
             }
         }
     }

@@ -69,6 +69,17 @@
     display: flex;
     justify-content: flex-start;
     gap: 30px;
+    position: relative;
+    p {
+      position: absolute;
+      top: 41px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px;
+      color: #EB5757;
+      &:last-child {
+        right: 157px;
+      }
+    }
   }
   &__portfolio {
     margin-top: 40px;
@@ -84,18 +95,5 @@
       font-size: 13px;
       color: #878787
     }
-  }
-}
-#name, #tel {
-  display: block;
-  padding: 10px 0 10px 5px;
-  width: 335px;
-  border: none;
-  border-bottom: 1px solid #c8c3c3;
-  &::placeholder {
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 16px;
-    color: #ADADAD;
   }
 }

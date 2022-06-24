@@ -1,5 +1,5 @@
 <template>
-    <input :id="id" :type="type" :placeholder="placeholder" @input="changeInput">
+    <input :id="id" :type="type" :placeholder="placeholder" @input="changeInput" :style="style">
 </template>
 
 <script>
@@ -17,6 +17,9 @@
             },
             modelValue: {
                 type: String
+            },
+            style: {
+                type: Object
             }
         },
         methods: {
@@ -27,6 +30,6 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+    @use "style";
 </style>

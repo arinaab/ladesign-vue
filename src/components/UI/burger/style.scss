@@ -37,11 +37,16 @@
 @media (max-width: 991px) {
   .burger {
     display: block;
+    &.dark {
+      top: 28px;
+    }
   }
 }
 @media (max-width: 767px) {
   .burger {
-    top: 28px;
+    &.dark {
+      top: 28px;
+    }
   }
 }
 @media (max-width: 575px) {

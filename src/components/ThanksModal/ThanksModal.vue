@@ -1,5 +1,5 @@
 <template>
-    <modal-app @click="$emit('changeModal')">
+    <modal-app @click="$emit('changeModal')" :style="widthStyle">
         <div class="modal__wrapper">
             <img class="modal__success" src="@/assets/success.svg" alt="success">
             <p class="modal__title modal__title_center">{{ modalMessage }}</p>
@@ -25,6 +25,11 @@
             return {
                 modalMessage: 'Ваша Заявка успешно отправлена',
                 modalText: 'Спасибо, что обратились в нашу студию. Наш дизайнер с вами свяжется'
+            }
+        },
+        computed: {
+            widthStyle () {
+                return { 'width': '607px'}
             }
         }
     }

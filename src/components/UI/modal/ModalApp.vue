@@ -1,6 +1,6 @@
 <template>
     <div class="modal" @click="$emit('changeModal')">
-        <div class="modal__item" @click.stop="">
+        <div class="modal__item" :style="style" @click.stop="">
             <app-close @click="$emit('changeModal')"></app-close>
             <slot></slot>
         </div>
@@ -13,6 +13,11 @@
         name: "ModalApp",
         components: {
           AppClose
+        },
+        props: {
+            style: {
+                type: Object
+            }
         }
     }
 </script>

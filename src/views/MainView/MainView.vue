@@ -5,7 +5,6 @@
             <confidence-app></confidence-app>
             <portfolio-app></portfolio-app>
         </div>
-        <footer-app></footer-app>
     </div>
 </template>
 
@@ -13,12 +12,11 @@
     import PromoApp from "@/components/PromoApp/PromoApp";
     import ConfidenceApp from "@/components/ConfidenceApp/ConfidenceApp";
     import PortfolioApp from "@/components/PortfolioApp/PortfolioApp";
-    import FooterApp from "@/components/FooterApp/FooterApp";
     import { mapGetters } from 'vuex'
     export default {
         name: "MainView",
         components: {
-            PromoApp, ConfidenceApp, PortfolioApp, FooterApp
+            PromoApp, ConfidenceApp, PortfolioApp
         },
         computed: {
             ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE', 'GET_OVERLAY_STATE'])

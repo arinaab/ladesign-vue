@@ -1,10 +1,13 @@
 <template>
     <nav class="header" :class="{ 'light': changeColors }">
         <div class="header__items">
-            <img v-if="!changeColors || GET_OVERLAY_STATE" class="header__logo" src="@/assets/logo.svg" alt="logo">
-            <img v-else class="header__logo" src="@/assets/logodark.svg" alt="logo">
+            <router-link :to="{ name: 'Main' }">
+                <img v-if="!changeColors || GET_OVERLAY_STATE" class="header__logo" src="@/assets/logo.svg" alt="logo">
+                <img v-else class="header__logo" src="@/assets/logodark.svg" alt="logo">
+            </router-link>
             <div class="header__links">
-                <a class="header__item" :class="{ 'dark': changeColors }" href="#">Портфолио</a>
+                <router-link :to="{ name: 'Portfolio' }"
+                 class="header__item" :class="{ 'dark': changeColors }">Портфолио</router-link>
                 <a class="header__item" :class="{ 'dark': changeColors }" href="#">Услуги и цены</a>
                 <a class="header__item" :class="{ 'dark': changeColors }" href="#">Контакты</a>
             </div>
@@ -17,9 +20,9 @@
         <burger-app :is-dark="isDark && !GET_OVERLAY_STATE" @click="changeOverlay"></burger-app>
         <div v-if="GET_OVERLAY_STATE" class="overlay">
             <div class="overlay__links">
-                <a class="overlay__item" href="#">Портфолио</a>
-                <a class="overlay__item" href="#">Услуги и цены</a>
-                <a class="overlay__item" href="#">Контакты</a>
+                <router-link class="overlay__item" :to="{ name: 'Portfolio' }" @click="changeOverlay">Портфолио</router-link>
+                <a class="overlay__item" href="#" @click="changeOverlay">Услуги и цены</a>
+                <a class="overlay__item" href="#" @click="changeOverlay">Контакты</a>
             </div>
         </div>
     </nav>
@@ -46,11 +49,18 @@
         methods: {
             ...mapMutations('MainModule', ['SET_OVERLAY_STATE']),
             onScroll () {
-                this.scrollTop = document.documentElement.scrollTop
-                this.scrollTop >= 800 ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
+                if (this.$route.name !== 'Portfolio') {
+                    this.scrollTop = document.documentElement.scrollTop
+                    this.scrollTop >= 800 ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
+                }
             },
             changeOverlay () {
                 this.SET_OVERLAY_STATE()
+            }
+        },
+        watch: {
+            '$route.path'() {
+                this.$route.name === 'Portfolio' ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
             }
         },
         mounted () {

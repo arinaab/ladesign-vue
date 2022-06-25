@@ -1,0 +1,16 @@
+.portfolio-view {
+  margin-top: 150px;
+}
+@media (max-width: 991px) {
+
+}
+@media (max-width: 767px) {
+  .portfolio-view {
+    margin-top: 140px;
+  }
+}
+@media (max-width: 575px) {
+  .portfolio-view {
+    margin-top: 130px;
+  }
+}

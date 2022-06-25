@@ -102,5 +102,16 @@
 
 }
 @media (max-width: 575px) {
-
+  .header {
+    &__items {
+      justify-content: center;
+      gap: 30px;
+    }
+    &__logo {
+      margin-right: 0;
+    }
+    &__info {
+      margin-right: 16%;
+    }
+  }
 }

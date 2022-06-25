@@ -21,3 +21,9 @@
     margin-top: -3px;
   }
 }
+@media (max-width: 575px) {
+  .close {
+    top: -18px;
+    right: 0;
+  }
+}

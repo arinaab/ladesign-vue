@@ -1,5 +1,7 @@
 <template>
-    <p class="portfolio__nav">{{ item.title }}<span><sup>{{ item.amount }}</sup></span></p>
+    <p class="portfolio__nav" @click="changeActive(item)">
+        {{ item.title }}<span><sup>{{ item.amount }}</sup></span>
+    </p>
 </template>
 
 <script>
@@ -7,7 +9,19 @@
         name: "PortfolioItem.vue",
         props: {
             item: {
-                type: Object
+                type: Object,
+                default: () => {}
+            }
+        },
+        data () {
+            return {
+                activeLink: ''
+            }
+        },
+        methods: {
+            changeActive (item) {
+                this.activeLink = item.title
+                this.$emit('setActive', this.activeLink)
             }
         }
     }

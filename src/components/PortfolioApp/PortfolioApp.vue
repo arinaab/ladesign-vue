@@ -2,7 +2,8 @@
     <div class="portfolio">
         <subtitle-app class="center">Портфолио</subtitle-app>
         <div class="portfolio__navs">
-            <portfolio-item v-for="item in navItems" :key="item.id" :item="item"></portfolio-item>
+            <portfolio-item v-for="item in navItems" :key="item.id" :item="item" @setActive="setActive"
+            :class="{ 'active': item.title === activeLink }"></portfolio-item>
         </div>
         <div class="portfolio__items">
             <portfolio-img v-for="item in itemsImg" :key="item.id" :img="item"></portfolio-img>
@@ -43,24 +44,36 @@
                         id: i + 1, src: `${i + 1}.png`,
                         alt: `${i + 1}`,
                         descr: this.description[i],
+                        type: this.type[i],
                         text: 'Unique collection'})
                 }
-                return arr
+                const filteredArr = arr.filter(item => {
+                    if (this.activeLink === 'все работы') {
+                        return arr
+                    } else {
+                        return item.type === this.activeLink
+                    }
+                })
+                return this.activeLink ? filteredArr : arr
             }
         },
         data () {
             return {
                 navItems: [
-                    { id: 1, title: 'все работы', amount: 29},
-                    { id: 2, title: 'квартиры', amount: 18},
-                    { id: 3, title: 'дома', amount: 12},
+                    { id: 1, title: 'все работы', amount: 10},
+                    { id: 2, title: 'квартиры', amount: 2},
+                    { id: 3, title: 'дома', amount: 6},
                     { id: 4, title: 'коммерческие помещения', amount: 2}
                 ],
                 description: [
                     'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки',
                     'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки'
                 ],
-                moreItems: false
+                type: ['дома', 'дома', 'квартиры', 'дома', 'дома', 'коммерческие помещения', 'квартиры',
+                'коммерческие помещения', 'дома', 'дома'],
+                moreItems: false,
+                active: false,
+                activeLink: ''
             }
         },
         methods: {
@@ -78,8 +91,14 @@
             showThanksModal () {
                 this.SET_MODALFORM_STATE(false)
                 this.SET_MODALTHANKS_STATE(true)
-                // setTimeout(() => this.SET_MODALTHANKS_STATE(false), 3000)
+                setTimeout(() => this.SET_MODALTHANKS_STATE(false), 3000)
+            },
+            setActive (link) {
+                this.activeLink = link
             }
+        },
+        mounted () {
+            this.activeLink = 'все работы'
         }
     }
 </script>

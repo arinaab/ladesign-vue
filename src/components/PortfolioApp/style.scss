@@ -35,6 +35,18 @@
         top: 28px;
       }
     }
+    &.active {
+      color: #393246;
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #393246;
+        position: absolute;
+        top: 28px;
+      }
+    }
   }
   &__items {
     margin-bottom: 40px;

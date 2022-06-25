@@ -5,7 +5,7 @@
             <portfolio-item v-for="item in navItems" :key="item.id" :item="item" @setActive="setActive"
             :class="{ 'active': item.title === activeLink }"></portfolio-item>
         </div>
-        <div class="portfolio__items">
+        <div class="portfolio__items" :class="{ 'portfolio__items_flex' : this.activeLink !== 'все работы' }">
             <portfolio-img v-for="item in itemsImg" :key="item.id" :img="item"></portfolio-img>
         </div>
         <button-app color="standart" v-if="!moreItems" @click="showMoreItems">Показать еще работы</button-app>
@@ -39,7 +39,7 @@
             ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE']),
             itemsImg () {
                 const arr = []
-                for (let i = 0; i < 10; i++) {
+                for (let i = 0; i < this.description.length; i++) {
                     arr.push({
                         id: i + 1, src: `${i + 1}.png`,
                         alt: `${i + 1}`,
@@ -47,14 +47,8 @@
                         type: this.type[i],
                         text: 'Unique collection'})
                 }
-                const filteredArr = arr.filter(item => {
-                    if (this.activeLink === 'все работы') {
-                        return arr
-                    } else {
-                        return item.type === this.activeLink
-                    }
-                })
-                return this.activeLink ? filteredArr : arr
+                const filteredArr = arr.filter(item => item.type === this.activeLink)
+                return this.activeLink === 'все работы' ? arr : filteredArr
             }
         },
         data () {
@@ -69,7 +63,7 @@
                     'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки',
                     'LOFT', 'Длинное название', 'Название в две строки', 'LOFT', 'Название в две строки'
                 ],
-                type: ['дома', 'дома', 'квартиры', 'дома', 'дома', 'коммерческие помещения', 'квартиры',
+                type: ['квартиры', 'квартиры', 'дома', 'дома', 'дома', 'коммерческие помещения', 'дома',
                 'коммерческие помещения', 'дома', 'дома'],
                 moreItems: false,
                 active: false,

@@ -26,11 +26,19 @@
     text-transform: uppercase;
     color: #FFFFFF;
     margin-right: 50px;
+    padding-bottom: 3px;
+    &:hover {
+      border-bottom: 1px solid white;
+    }
     &:last-child {
       margin-right: 0;
     }
     &.dark {
       color: #777777;
+      padding-bottom: 2px;
+      &:hover {
+        border-bottom: 1px solid #777777;
+      }
     }
   }
   &__info {

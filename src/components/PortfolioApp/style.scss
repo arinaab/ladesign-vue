@@ -32,7 +32,7 @@
         height: 2px;
         background-color: #393246;
         position: absolute;
-        top: 28px;
+        top: 32px;
       }
     }
     &.active {
@@ -44,7 +44,7 @@
         height: 2px;
         background-color: #393246;
         position: absolute;
-        top: 28px;
+        top: 32px;
       }
     }
   }
@@ -101,6 +101,58 @@
       &:nth-child(10) {
         grid-column: 3/5;
         grid-row: 4;
+      }
+    }
+    &_flex {
+      display: flex;
+      flex-wrap: wrap;
+      width: 1204px;
+      .block__container {
+        cursor: pointer;
+        position: relative;
+        &:hover {
+          z-index: 0;
+        }
+        &:first-child {
+          width: 278px;
+          height: 278px;
+        }
+        &:nth-child(2) {
+          width: 278px;
+          height: 278px;
+        }
+        &:nth-child(3) {
+          width: 278px;
+          height: 278px;
+        }
+        &:nth-child(4) {
+          width: 278px;
+          height: 278px;
+        }
+        &:nth-child(5) {
+          width: 278px;
+          height: 278px;
+        }
+        //&:nth-child(6) {
+        //  grid-column: 3/5;
+        //  grid-row: 2/4;
+        //}
+        &:nth-child(7) {
+          width: calc(278px + 278px);
+          height: 278px;
+        }
+        //&:nth-child(8) {
+        //  grid-column: 1/2;
+        //  grid-row: 4;
+        //}
+        &:nth-child(9) {
+          width: 278px;
+          height: 278px;
+        }
+        //&:nth-child(10) {
+        //  grid-column: 3/5;
+        //  grid-row: 4;
+        //}
       }
     }
   }
@@ -162,6 +214,9 @@
     &__items {
       grid-template-columns: repeat(4, 210px);
       grid-template-rows: repeat(4, 210px);
+      &_flex {
+        width: 930px;
+      }
     }
   }
 }
@@ -213,6 +268,9 @@
           grid-row: 8;
         }
       }
+      &_flex {
+        width: 682px;
+      }
     }
   }
 }
@@ -226,6 +284,11 @@
     &__items {
       grid-template-columns: repeat(2, 276px);
       gap: 15px;
+      &_flex {
+        flex-direction: column;
+        align-items: center;
+        width: 480px;
+      }
     }
   }
 }
@@ -273,6 +336,9 @@
           grid-column: 1/2;
           grid-row: 10;
         }
+      }
+      &_flex {
+        width: 290px;
       }
     }
     &__link {

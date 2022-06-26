@@ -1,0 +1,29 @@
+.current {
+  &__promo {
+    max-width: 1920px;
+    height: 800px;
+    padding-top: 102px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 26px;
+  }
+  &__title {
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+  &__subtitle {
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+}

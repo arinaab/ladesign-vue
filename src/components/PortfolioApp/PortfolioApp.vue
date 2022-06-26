@@ -37,16 +37,20 @@
         },
         computed: {
             ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE']),
+            ...mapGetters('PortfolioModule', ['GET_PORTFOLIO_ITEMS']),
             itemsImg () {
                 const arr = []
                 for (let i = 0; i < this.description.length; i++) {
                     arr.push({
-                        id: i + 1, src: `${i + 1}.png`,
+                        id: i + 1,
+                        src: `${i + 1}.png`,
+                        currentSrc: 'currentbg.jpg',
                         alt: `${i + 1}`,
                         descr: this.description[i],
                         type: this.type[i],
                         text: 'Unique collection'})
                 }
+                this.SET_PORTFOLIO_ITEMS(arr)
                 const filteredArr = arr.filter(item => item.type === this.activeLink)
                 return this.activeLink === 'все работы' ? arr : filteredArr
             }
@@ -72,6 +76,7 @@
         },
         methods: {
             ...mapMutations('MainModule', ['SET_MODALFORM_STATE', 'SET_MODALTHANKS_STATE']),
+            ...mapMutations('PortfolioModule', ['SET_PORTFOLIO_ITEMS']),
             showMoreItems () {
                 this.moreItems = true
             },

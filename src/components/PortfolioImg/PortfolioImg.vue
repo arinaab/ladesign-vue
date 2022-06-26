@@ -1,5 +1,6 @@
 <template>
-    <div class="block__container" @mouseover="onHover" @mouseleave="onLeave" :style="getStyle">
+    <div class="block__container" @mouseover="onHover" @mouseleave="onLeave" :style="getStyle"
+    @click="this.$router.replace({ name: 'Work', params: {id: img.id} })">
         <div class="block__wrapper">
             <div class="block__item">
                 <p class="text" v-if="isHover">{{ img.descr }}</p>

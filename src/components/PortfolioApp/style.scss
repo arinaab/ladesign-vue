@@ -110,49 +110,11 @@
       .block__container {
         cursor: pointer;
         position: relative;
+        width: 278px;
+        height: 278px;
         &:hover {
           z-index: 0;
         }
-        &:first-child {
-          width: 278px;
-          height: 278px;
-        }
-        &:nth-child(2) {
-          width: 278px;
-          height: 278px;
-        }
-        &:nth-child(3) {
-          width: 278px;
-          height: 278px;
-        }
-        &:nth-child(4) {
-          width: 278px;
-          height: 278px;
-        }
-        &:nth-child(5) {
-          width: 278px;
-          height: 278px;
-        }
-        //&:nth-child(6) {
-        //  grid-column: 3/5;
-        //  grid-row: 2/4;
-        //}
-        &:nth-child(7) {
-          width: calc(278px + 278px);
-          height: 278px;
-        }
-        //&:nth-child(8) {
-        //  grid-column: 1/2;
-        //  grid-row: 4;
-        //}
-        &:nth-child(9) {
-          width: 278px;
-          height: 278px;
-        }
-        //&:nth-child(10) {
-        //  grid-column: 3/5;
-        //  grid-row: 4;
-        //}
       }
     }
   }

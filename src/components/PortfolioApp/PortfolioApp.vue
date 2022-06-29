@@ -1,5 +1,5 @@
 <template>
-    <div class="portfolio">
+    <section class="portfolio">
         <subtitle-app class="center">Портфолио</subtitle-app>
         <div class="portfolio__navs">
             <portfolio-item v-for="item in navItems" :key="item.id" :item="item" @setActive="setActive"
@@ -19,7 +19,7 @@
         <portfolio-modal v-if="GET_MODALFORM_STATE" @changeModal="closeModal"
         @showThanksModal="showThanksModal"></portfolio-modal>
         <thanks-modal v-if="GET_MODALTHANKS_STATE" @changeModal="closeModal"></thanks-modal>
-    </div>
+    </section>
 </template>
 
 <script>

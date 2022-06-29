@@ -1,5 +1,5 @@
 <template>
-    <div class="confidence">
+    <section class="confidence">
         <subtitle-app>Наша команда дает уверенность</subtitle-app>
         <!-- eslint-disable -->
         <div class="confidence__wrapper">
@@ -14,7 +14,7 @@
                 <img src="@/assets/confidence.png" alt="img">
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

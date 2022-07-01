@@ -9,6 +9,16 @@
     width: 514px;
     min-height: 528px;
     display: grid;
+    &_text {
+      display: block;
+      margin-left: 102px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      color: #777777;
+      min-height: 216px;
+      line-height: 30px;
+    }
   }
   &__img {
     width: 585px;
@@ -34,6 +44,19 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 20px 0;
+    &_work {
+      p {
+        font-size: 14px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #878787;
+        &:last-child {
+          font-size: 16px;
+          color: #393246;
+          font-weight: 300;
+        }
+      }
+    }
     img {
       display: block;
       width: 30px;
@@ -44,6 +67,13 @@
       border-bottom: 1px solid #c8c3c3;
       p {
         width: 88%;
+      }
+      .work-first {
+        width: 50%;
+      }
+      .work-second {
+        width: 50%;
+        text-align: right;
       }
     }
     &:hover {

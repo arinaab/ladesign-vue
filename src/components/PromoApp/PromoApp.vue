@@ -1,14 +1,23 @@
 <template>
     <section class="promo">
-        <h1 class="promo__title">ladesign</h1>
-        <!-- eslint-disable-next-line -->
-        <h2 class="promo__subtitle">Дизайн-проекты жилых и коммерческих помещений. Малая архитектура</h2>
+        <h1 class="promo__title" :class="{ 'work': this.$route.name === 'Work' }">{{ title }}</h1>
+        <h2 class="promo__subtitle" :class="{ 'work-subtitle': this.$route.name === 'Work' }">{{ subtitle }}</h2>
     </section>
 </template>
 
 <script>
     export default {
-        name: "PromoApp"
+        name: "PromoApp",
+        props: {
+            title: {
+                type: String,
+                default: 'ladesign'
+            },
+            subtitle: {
+                type: String,
+                default: 'Дизайн-проекты жилых и коммерческих помещений. Малая архитектура'
+            }
+        }
     }
 </script>
 

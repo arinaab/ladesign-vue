@@ -1,8 +1,8 @@
 <template>
     <section class="confidence">
-        <subtitle-app>Наша команда дает уверенность</subtitle-app>
+        <subtitle-app>{{ title }}</subtitle-app>
         <!-- eslint-disable -->
-        <div class="confidence__wrapper">
+        <div class="confidence__wrapper" v-if="this.$route.name === 'Main'">
             <div class="confidence__info">
                 <h5 class="confidence__subtitle">Дизайн-проект от студии LA Design не только совершенен по дизайну, но и реализуем</h5>
                 <confidence-item
@@ -14,6 +14,15 @@
                 <img src="@/assets/confidence.png" alt="img">
             </div>
         </div>
+        <div class="confidence__wrapper" v-if="this.$route.name === 'Work'">
+            <div class="confidence__info">
+                <confidence-item
+                        v-for="item in list" :key="item.title"
+                        :item="item">
+                </confidence-item>
+            </div>
+            <div class="confidence__info confidence__info_text">{{ text }}</div>
+        </div>
     </section>
 </template>
 
@@ -24,6 +33,19 @@
         name: "ConfidenceApp.vue",
         components: {
             ConfidenceItem, SubtitleApp
+        },
+        props: {
+            title: {
+                type: String,
+                default: 'Наша команда дает уверенность'
+            },
+            list: {
+                type: Array,
+                default: () => []
+            },
+            text: {
+                type: String
+            }
         },
         data () {
             return {

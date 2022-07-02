@@ -29,8 +29,14 @@
                 return { 'background': `url(/${this.work.currentSrc}) center center/cover no-repeat` }
             },
             title () {
-                // eslint-disable-next-line
-                return `Дизайн 1-комнатной квартиры в стиле ${this.work.descr}`
+                /* eslint-disable */
+                if (this.work.type === 'квартира') {
+                    return `Дизайн 1-комнатной квартиры в стиле ${this.work.descr}`
+                } else if (this.work.type === 'дома') {
+                    return `Дизайн дома в стиле ${this.work.descr}`
+                } else {
+                    return `Дизайн коммерческого помещения в стиле ${this.work.descr}`
+                }
             },
             description () {
                 return [
@@ -43,6 +49,7 @@
         },
         created () {
             const work = this.GET_FILTERED_PORTFOLIO_ITEMS(this.$route.params.id)
+            console.log(work)
             if (work) this.work = work[0]
         }
     }

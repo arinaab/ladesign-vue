@@ -11,6 +11,10 @@
         <p class="work-first">{{ item.title }}</p>
         <p class="work-second">{{ item.value }}</p>
     </div>
+    <div class="confidence__elem confidence__elem_price" v-if="this.$route.name === 'Price'">
+        <p class="price-first">{{ item.title }}</p>
+        <p class="price-second">{{ item.value }}</p>
+    </div>
 </template>
 
 <script>

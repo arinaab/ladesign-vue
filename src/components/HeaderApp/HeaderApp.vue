@@ -8,7 +8,8 @@
             <div class="header__links">
                 <router-link :to="{ name: 'Portfolio' }"
                  class="header__item" :class="{ 'dark': changeColors }">Портфолио</router-link>
-                <a class="header__item" :class="{ 'dark': changeColors }" href="#">Услуги и цены</a>
+                <router-link :to="{ name: 'Price' }"
+                 class="header__item" :class="{ 'dark': changeColors }">Услуги и цены</router-link>
                 <a class="header__item" :class="{ 'dark': changeColors }" href="#">Контакты</a>
             </div>
             <div class="header__info">
@@ -49,7 +50,7 @@
         methods: {
             ...mapMutations('MainModule', ['SET_OVERLAY_STATE']),
             onScroll () {
-                if (this.$route.name !== 'Portfolio') {
+                if (this.$route.name !== 'Portfolio' || this.$route.name !== 'Price') {
                     this.scrollTop = document.documentElement.scrollTop
                     this.scrollTop >= 800 ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
                 }
@@ -60,7 +61,7 @@
         },
         watch: {
             '$route.path'() {
-                this.$route.name === 'Portfolio' ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
+                this.$route.name === 'Portfolio' || this.$route.name === 'Price' ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
             }
         },
         mounted () {

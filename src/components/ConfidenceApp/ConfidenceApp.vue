@@ -23,6 +23,15 @@
             </div>
             <div class="confidence__info confidence__info_text">{{ text }}</div>
         </div>
+        <div class="confidence__wrapper" v-if="this.$route.name === 'Price'">
+            <div class="confidence__info confidence__info_text mr textprice">{{ text }}</div>
+            <div class="confidence__info">
+                <confidence-item
+                        v-for="item in list" :key="item.title"
+                        :item="item">
+                </confidence-item>
+            </div>
+        </div>
     </section>
 </template>
 

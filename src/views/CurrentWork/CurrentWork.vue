@@ -49,7 +49,6 @@
         },
         created () {
             const work = this.GET_FILTERED_PORTFOLIO_ITEMS(this.$route.params.id)
-            console.log(work)
             if (work) this.work = work[0]
         }
     }

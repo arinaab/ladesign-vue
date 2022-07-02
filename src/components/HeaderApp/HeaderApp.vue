@@ -50,7 +50,7 @@
         methods: {
             ...mapMutations('MainModule', ['SET_OVERLAY_STATE']),
             onScroll () {
-                if (this.$route.name !== 'Portfolio' || this.$route.name !== 'Price') {
+                if (this.$route.name !== 'Portfolio' && this.$route.name !== 'Price') {
                     this.scrollTop = document.documentElement.scrollTop
                     this.scrollTop >= 800 ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
                 }

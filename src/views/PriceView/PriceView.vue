@@ -2,27 +2,22 @@
     <div>
         <div class="container">
             <confidence-app title="услуги и цены"
-            :style="center"
             :list="services"
             text="Зачем вам нужен дизайн-проект"></confidence-app>
+            <design-price></design-price>
         </div>
     </div>
 </template>
 
 <script>
     import ConfidenceApp from "@/components/ConfidenceApp/ConfidenceApp";
+    import DesignPrice from "@/components/DesignPrice/DesignPrice";
     export default {
         name: "PriceView",
         components: {
-            ConfidenceApp
+            ConfidenceApp, DesignPrice
         },
         computed: {
-            center () {
-                return {
-                    'width': '100%',
-                    'text-align': 'center'
-                }
-            },
             services () {
                 return [
                     { title: 'Чтобы ничего не упустить', value: 'Качественный дизайн-проект поможет избежать ошибок и переделок, которые приводят к лишним тратам и затягивают сроки ремонта' },

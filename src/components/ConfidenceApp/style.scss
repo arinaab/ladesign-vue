@@ -126,6 +126,9 @@
     }
     &__info {
       width: 100%;
+      &_text {
+        margin-left: 0;
+      }
     }
     &__img {
       width: 100%;

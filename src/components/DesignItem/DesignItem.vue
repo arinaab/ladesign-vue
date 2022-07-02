@@ -4,6 +4,9 @@
             <p class="design__title">{{ variant.title }}</p>
             <p class="design__subtitle">{{ variant.subtitle }}</p>
         </div>
+        <div v-if="showMore" class="design__more">
+            <p v-for="item in variant.services" :key="item">{{ item }}</p>
+        </div>
         <button-app :style="btnStyle" @click="showModal">Заказать</button-app>
     </div>
 </template>
@@ -19,11 +22,17 @@
             variant: {
                 type: Object,
                 default: () => {}
+            },
+            showMore: {
+                type: Boolean
             }
         },
         computed: {
             btnStyle () {
-                return { 'outline': 'none' }
+                return {
+                    'outline': 'none',
+                    'width': '101%'
+                }
             }
         },
         methods: {

@@ -12,10 +12,7 @@
         <div v-if="moreItems" class="portfolio__items">
             <portfolio-img v-for="item in itemsImg" :key="item.id" :img="item"></portfolio-img>
         </div>
-        <div class="portfolio__link">
-            <p @click="showModal">Оставить заявку на проект</p>
-            <img src="@/assets/arrowportfolio.svg" alt="arrow">
-        </div>
+        <link-app></link-app>
         <portfolio-modal v-if="GET_MODALFORM_STATE" @changeModal="closeModal"
         @showThanksModal="showThanksModal"></portfolio-modal>
         <thanks-modal v-if="GET_MODALTHANKS_STATE" @changeModal="closeModal"></thanks-modal>
@@ -26,6 +23,7 @@
     import SubtitleApp from "@/components/UI/subtitle/SubtitleApp";
     import PortfolioItem from "@/components/PortfolioItem/PortfolioItem";
     import ButtonApp from "@/components/UI/button/ButtonApp";
+    import LinkApp from "@/components/LinkApp/LinkApp";
     import PortfolioImg from "@/components/PortfolioImg/PortfolioImg";
     import PortfolioModal from "@/components/PortfolioModal/PortfolioModal";
     import ThanksModal from "@/components/ThanksModal/ThanksModal";
@@ -33,7 +31,7 @@
     export default {
         name: "PortfolioApp.vue",
         components: {
-            SubtitleApp, PortfolioItem, ButtonApp, PortfolioImg, PortfolioModal, ThanksModal
+            SubtitleApp, PortfolioItem, ButtonApp, PortfolioImg, PortfolioModal, ThanksModal, LinkApp
         },
         computed: {
             ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE']),
@@ -86,9 +84,6 @@
             ...mapMutations('PortfolioModule', ['SET_PORTFOLIO_ITEMS']),
             showMoreItems () {
                 this.moreItems = true
-            },
-            showModal () {
-                this.SET_MODALFORM_STATE(true)
             },
             closeModal () {
                 this.SET_MODALFORM_STATE(false)

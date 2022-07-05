@@ -18,10 +18,12 @@
      @showThanksModal="showThanksModal"></portfolio-modal>
     <thanks-modal v-if="GET_MODALTHANKS_STATE" @changeModal="closeModal"></thanks-modal>
     <slider-app></slider-app>
+    <link-app></link-app>
 </template>
 
 <script>
     import SubtitleApp from "@/components/UI/subtitle/SubtitleApp";
+    import LinkApp from "@/components/LinkApp/LinkApp";
     import DesignItem from "@/components/DesignItem/DesignItem";
     import PortfolioModal from "@/components/PortfolioModal/PortfolioModal";
     import ThanksModal from "@/components/ThanksModal/ThanksModal";
@@ -30,7 +32,7 @@
     export default {
         name: "DesignPrice",
         components: {
-            SubtitleApp, DesignItem, PortfolioModal, ThanksModal, SliderApp
+            SubtitleApp, DesignItem, PortfolioModal, ThanksModal, SliderApp, LinkApp
         },
         computed: {
             ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE']),

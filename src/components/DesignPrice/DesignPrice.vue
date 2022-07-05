@@ -17,6 +17,7 @@
     <portfolio-modal v-if="GET_MODALFORM_STATE" @changeModal="closeModal"
      @showThanksModal="showThanksModal"></portfolio-modal>
     <thanks-modal v-if="GET_MODALTHANKS_STATE" @changeModal="closeModal"></thanks-modal>
+    <slider-app></slider-app>
 </template>
 
 <script>
@@ -24,11 +25,12 @@
     import DesignItem from "@/components/DesignItem/DesignItem";
     import PortfolioModal from "@/components/PortfolioModal/PortfolioModal";
     import ThanksModal from "@/components/ThanksModal/ThanksModal";
+    import SliderApp from "@/components/SliderApp/SliderApp";
     import { mapGetters, mapMutations } from 'vuex'
     export default {
         name: "DesignPrice",
         components: {
-            SubtitleApp, DesignItem, PortfolioModal, ThanksModal
+            SubtitleApp, DesignItem, PortfolioModal, ThanksModal, SliderApp
         },
         computed: {
             ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE']),

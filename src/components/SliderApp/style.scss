@@ -8,3 +8,8 @@
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 10px;
 }
+@media (max-width: 575px) {
+  .swiper {
+    min-height: 370px;
+  }
+}

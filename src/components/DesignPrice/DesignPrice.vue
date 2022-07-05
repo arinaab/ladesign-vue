@@ -38,7 +38,7 @@
             ...mapGetters('MainModule', ['GET_MODALFORM_STATE', 'GET_MODALTHANKS_STATE']),
             titleStyle () {
                 return {
-                    'width': '50%',
+                    'width': '60%',
                     'margin': '0 auto'
                 }
             }

@@ -100,3 +100,25 @@
     }
   }
 }
+
+@media (max-width: 991px) {
+  .design {
+    margin-top: 100px;
+    &__wrapper {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    &__item {
+      min-width: 100%;
+      &:first-child, &:nth-child(2) {
+        .design__more {
+          padding: 16px;
+        }
+      }
+    }
+    &__more {
+      width: 100%;
+    }
+  }
+}

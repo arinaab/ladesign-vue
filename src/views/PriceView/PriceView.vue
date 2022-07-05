@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="price">
         <div class="container">
             <confidence-app title="услуги и цены"
             :list="services"

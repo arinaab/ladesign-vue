@@ -1,5 +1,5 @@
 <template>
-    <input :id="id" :type="type" :placeholder="placeholder" @input="changeInput" :style="style">
+    <input :id="id" :type="type" :placeholder="placeholder" @input="changeInput" :style="style" :accept="accept">
 </template>
 
 <script>
@@ -20,6 +20,9 @@
             },
             style: {
                 type: Object
+            },
+            accept: {
+                type: String
             }
         },
         methods: {

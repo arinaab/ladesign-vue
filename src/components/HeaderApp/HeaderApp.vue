@@ -10,7 +10,8 @@
                  class="header__item" :class="{ 'dark': changeColors }">Портфолио</router-link>
                 <router-link :to="{ name: 'Price' }"
                  class="header__item" :class="{ 'dark': changeColors }">Услуги и цены</router-link>
-                <a class="header__item" :class="{ 'dark': changeColors }" href="#">Контакты</a>
+                <router-link :to="{ name: 'Contacts' }"
+                 class="header__item" :class="{ 'dark': changeColors }">Контакты</router-link>
             </div>
             <div class="header__info">
                 <img v-if="!changeColors || GET_OVERLAY_STATE" class="header__phone" src="@/assets/icon_phon.svg" alt="phone">
@@ -22,8 +23,8 @@
         <div v-if="GET_OVERLAY_STATE" class="overlay">
             <div class="overlay__links">
                 <router-link class="overlay__item" :to="{ name: 'Portfolio' }" @click="changeOverlay">Портфолио</router-link>
-                <a class="overlay__item" href="#" @click="changeOverlay">Услуги и цены</a>
-                <a class="overlay__item" href="#" @click="changeOverlay">Контакты</a>
+                <router-link class="overlay__item" :to="{ name: 'Price' }" @click="changeOverlay">Услуги и цены</router-link>
+                <router-link class="overlay__item" :to="{ name: 'Contacts' }" @click="changeOverlay">Контакты</router-link>
             </div>
         </div>
     </nav>
@@ -50,7 +51,7 @@
         methods: {
             ...mapMutations('MainModule', ['SET_OVERLAY_STATE']),
             onScroll () {
-                if (this.$route.name !== 'Portfolio' && this.$route.name !== 'Price') {
+                if (this.$route.name !== 'Portfolio' && this.$route.name !== 'Price' && this.$route.name !== 'Contacts') {
                     this.scrollTop = document.documentElement.scrollTop
                     this.scrollTop >= 800 ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
                 }
@@ -61,7 +62,7 @@
         },
         watch: {
             '$route.path'() {
-                this.$route.name === 'Portfolio' || this.$route.name === 'Price' ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
+                this.$route.name === 'Portfolio' || this.$route.name === 'Price' || this.$route.name === 'Contacts' ? this.changeColors = this.isDark = true : this.changeColors = this.isDark = false
             }
         },
         mounted () {

@@ -1,0 +1,56 @@
+.question {
+  &__text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #777777;
+    max-width: 500px;
+    margin-top: 30px;
+  }
+  &__form {
+    position: relative;
+    margin-top: 27px;
+    max-width: 515px;
+    input {
+      margin-top: 40px;
+    }
+    input[type=file] {
+      opacity: 0;
+      position: absolute;
+      bottom: -13px;
+      cursor: pointer;
+    }
+    label {
+      display: block;
+      margin-left: 10px;
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      color: #777777;
+    }
+  }
+  &__label {
+    margin-top: 44px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    img {
+      cursor: pointer;
+    }
+  }
+  &__submit {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    p {
+      margin-left: 30px;
+      width: 50%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px;
+      color: #878787;
+    }
+  }
+}

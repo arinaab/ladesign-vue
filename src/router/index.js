@@ -3,6 +3,7 @@ import MainView from "@/views/MainView/MainView";
 import PortfolioView from "@/views/PortfolioView/PortfolioView";
 import CurrentWork from "@/views/CurrentWork/CurrentWork";
 import PriceView from "@/views/PriceView/PriceView";
+import ContactsView from "@/views/ContactsView/ContactsView";
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     name: 'Price',
     path: '/price',
     component: PriceView
+  },
+  {
+    name: 'Contacts',
+    path: '/contacts',
+    component: ContactsView
   }
 ]
 

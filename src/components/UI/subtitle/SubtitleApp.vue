@@ -1,5 +1,5 @@
 <template>
-    <h4 class="subtitle" :class="{ 'center': this.$route.name === 'Price' }">
+    <h4 class="subtitle" :class="{ 'center': this.$route.name === 'Price' || this.$route.name === 'Contacts' }">
         <slot></slot>
     </h4>
 </template>

@@ -3,7 +3,7 @@
         <subtitle-app>контакты</subtitle-app>
         <div class="contacts__wrapper">
             <question-app></question-app>
-            <div class="contacts__our"></div>
+            <our-contacts></our-contacts>
         </div>
     </section>
 </template>
@@ -11,10 +11,11 @@
 <script>
     import SubtitleApp from "@/components/UI/subtitle/SubtitleApp";
     import QuestionApp from "@/components/QuestionApp/QuestionApp";
+    import OurContacts from "@/components/OurContacts/OurContacts";
     export default {
         name: "ContactsApp",
         components: {
-            SubtitleApp, QuestionApp
+            SubtitleApp, QuestionApp, OurContacts
         }
     }
 </script>

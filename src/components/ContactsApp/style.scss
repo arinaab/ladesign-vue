@@ -1,5 +1,8 @@
 .contacts {
   &__wrapper {
     margin-top: 100px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 205px;
   }
 }

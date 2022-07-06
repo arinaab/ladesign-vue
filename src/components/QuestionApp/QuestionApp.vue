@@ -11,11 +11,12 @@
             <div class="question__label">
                 <img src="@/assets/attach.svg" alt="attach">
                 <label for="file">Прикрепить файл</label>
-                <input-app type="file" id="file" :accept="extensions"></input-app>
+                <input-app type="file" id="file" :accept="extensions"
+                @change="downloadFile"></input-app>
             </div>
             <div class="question__submit">
                 <!-- eslint-disable -->
-                <button-app color="dark">Отправить</button-app>
+                <button-app color="dark" @click="sendQuestion">Отправить</button-app>
                 <p>Нажимая на кнопку, я даю согласие на обработку персональных данных</p>
             </div>
         </div>
@@ -46,7 +47,27 @@
             return {
                 name: '',
                 email: '',
-                question: ''
+                question: '',
+                file: ''
+            }
+        },
+        methods: {
+            sendQuestion () {
+                if (this.name && this.email && this.question) {
+                    const formData = new FormData()
+                    formData.append('name', this.name)
+                    formData.append('email', this.email)
+                    formData.append('question', this.question)
+                    if (this.file) {
+                        formData.append('file', this.file)
+                    }
+                    for (let key of formData.entries()) {
+                        console.log(key)
+                    }
+                }
+            },
+            downloadFile (e) {
+                this.file = e.target.value
             }
         }
     }

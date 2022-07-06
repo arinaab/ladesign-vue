@@ -54,3 +54,28 @@
     }
   }
 }
+
+@media (max-width: 991px) {
+  .question {
+    &__form {
+      max-width: none;
+      width: 100%;
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 575px) {
+  .question {
+    &__submit {
+      flex-direction: column;
+      align-items: flex-start;
+      p {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,5 +1,4 @@
 .our {
-  //max-width: 260px;
   &__wrapper {
     margin-top: 30px;
     display: flex;
@@ -34,4 +33,25 @@
 }
 p[data-location] {
   width: 53%;
+}
+
+@media (max-width: 991px) {
+  .our {
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+  p[data-location] {
+    width: 100%;
+  }
+}
+@media (max-width: 575px) {
+  .our {
+    &__wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
+    }
+  }
 }

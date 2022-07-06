@@ -6,3 +6,18 @@
     gap: 205px;
   }
 }
+
+@media (max-width: 991px) {
+  .contacts {
+    &__wrapper {
+      flex-direction: column;
+      gap: 70px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts {
+    margin-top: 140px;
+  }
+}

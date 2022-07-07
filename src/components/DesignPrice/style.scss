@@ -71,6 +71,9 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: #777777;
+      &:hover {
+        color: #0e0e0e;
+      }
     }
   }
   &__circle {
